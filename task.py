@@ -27,8 +27,9 @@ scissors = '''
 '''
 
 user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper and 2 for Scissors."))
-game_images = [rock, paper, scissors]
-computer_choice = random.choice(game_images)
+game_image = [rock, paper, scissors]
+computer_choice_index = random.randint(0,2)
+computer_choice = game_image[computer_choice_index]
 
 if user_choice < 0 or user_choice > 2:
     print("❌ That is not a valid option.")
@@ -38,21 +39,17 @@ else:
         print(computer_choice)
     elif user_choice == 1:
         print(paper)
-        game_images = [rock, paper, scissors]
-        comp_choose = random.choice(game_images)
         print(computer_choice)
     elif user_choice == 2:
         print(scissors)
-        game_images = [rock, paper, scissors]
-        comp_choose = random.choice(game_images)
         print(computer_choice)
     else:
         print("That is not a valid option.")
 
-    if user_choice == computer_choice:
+    if user_choice == computer_choice_index:
         print("It's a tie!")
-    elif (user_choice == 0 and computer_choice == 1) or (user_choice == 1 and computer_choice == 0) or (
-            user_choice == 2 and computer_choice == 1):
+    elif (user_choice == 0 and computer_choice_index == 1) or (user_choice == 1 and computer_choice_index == 0) or (
+            user_choice == 2 and computer_choice_index == 1):
         print("You win!")
     else:
         print("Computer wins. You lose!")
